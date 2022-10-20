@@ -9,7 +9,7 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 def predict(testing_image):
     
-    model = load_model(r'C:\Users\saman\OneDrive\Documents\EFREI\Datacamp\chest_xray.h5')
+    model = load_model('chest_xray.h5')
     
     image = Image.open(testing_image).convert('RGB')
     image = image.resize((224,224))
