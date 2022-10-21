@@ -27,11 +27,11 @@ def predict(testing_image):
     result = np.argmax(result, axis=-1)
 
     if result == 0:
-        return "Patient is Normal."
+        return "Normal case."
     elif result == 1:
-        return "Patient has Viral Pneumonia."
+        return "Pneumonia case."
     else:
-        return "Patient is COVID Positive."
+        return "Error."
 
 def main():
     st.title('Covid-Pneumonia Detection')
