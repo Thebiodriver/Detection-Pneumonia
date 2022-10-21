@@ -6,6 +6,13 @@ from keras.utils import img_to_array
 from keras.models import load_model
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
+st.sidebar.image("https://www.efrei.fr/wp-content/uploads/2022/01/LOGO_EFREI-PRINT_EFREI-WEB.png")
+st.sidebar.title("M1 Bioinformatics")
+st.sidebar.title("Data Camp project")
+st.sidebar.markdown("Groupe 4")
+st.sidebar.markdown("Hajar El fakharany")
+st.sidebar.markdown("Samantha Mario joy")
+st.sidebar.markdown("Jean-Dylan Thomas")
 
 def predict(testing_image):
     
