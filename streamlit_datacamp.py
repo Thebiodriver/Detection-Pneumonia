@@ -25,7 +25,7 @@ def predict(testing_image):
     image = image.reshape(1,224,224,3)
     image = image/255.0
     result = model.predict(image)
-    result = np.argmax(result, axis=-1)
+    result = np.argmax(result, axis=1)
 
     if result == 0:
         return "Pneumonia case."
