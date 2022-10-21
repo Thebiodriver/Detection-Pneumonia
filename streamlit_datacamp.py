@@ -6,37 +6,29 @@ from keras.utils import img_to_array
 from keras.models import load_model
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-st.sidebar.image("https://www.efrei.fr/wp-content/uploads/2022/01/LOGO_EFREI-PRINT_EFREI-WEB.png")
-st.sidebar.title("M1 Bioinformatics")
-st.sidebar.title("Data Camp project")
-st.sidebar.markdown("Groupe 4")
-st.sidebar.markdown("Hajar El fakharany")
-st.sidebar.markdown("Samantha Mario joy")
-st.sidebar.markdown("Jean-Dylan Thomas")
-
 
 def predict(testing_image):
     
-    model = load_model('chest_xray.h5')
+    model = load_model(r'C:\Users\saman\OneDrive\Documents\EFREI\Datacamp\chest_xray.h5')
     
     image = Image.open(testing_image).convert('RGB')
     image = image.resize((224,224))
     image = img_to_array(image)
     image = image.reshape(1,224,224,3)
-    image = image/255.0
+
     result = model.predict(image)
-    result = np.argmax(result, axis=1)
+    result = np.argmax(result, axis=-1)
 
     if result == 0:
-        return "Pneumonia case."
+        return "Patient is Normal."
     elif result == 1:
-        return "Normal case."
+        return "Patient has Viral Pneumonia."
     else:
-        return "Nothing."
+        return "Patient is COVID Positive."
 
 def main():
-    st.title('Pneumonia Detection')
-    st.subheader('This project will predict whether the image is a Normal chest X-ray or a Pneumonia chest X-ray.')
+    st.title('Covid-Pneumonia Detection')
+    st.subheader('This project will predict whether a person is suffering from Covid or Viral Pneumonia using Radiograph images.')
 
     image = st.file_uploader('Upload Image', type=['jpg', 'jpeg', 'png'])
 
