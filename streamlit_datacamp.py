@@ -6,17 +6,10 @@ from keras.utils import img_to_array
 from keras.models import load_model
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-st.sidebar.image("https://www.efrei.fr/wp-content/uploads/2022/01/LOGO_EFREI-PRINT_EFREI-WEB.png")
-st.sidebar.title("M1 Bioinformatics")
-st.sidebar.title("Data Camp project")
-st.sidebar.markdown("Groupe 4")
-st.sidebar.markdown("Hajar El fakharany")
-st.sidebar.markdown("Samantha Mario joy")
-st.sidebar.markdown("Jean-Dylan Thomas")
 
 def predict(testing_image):
     
-    model = load_model('chest_xray.h5')
+    model = load_model(r'C:\Users\saman\OneDrive\Documents\EFREI\Datacamp\chest_xray.h5')
     
     image = Image.open(testing_image).convert('RGB')
     image = image.resize((224,224))
@@ -27,11 +20,11 @@ def predict(testing_image):
     result = np.argmax(result, axis=-1)
 
     if result == 0:
-        return "Normal case."
+        return "Patient is Normal."
     elif result == 1:
-        return "Pneumonia case."
+        return "Patient has Viral Pneumonia."
     else:
-        return "Error."
+        return "Patient is COVID Positive."
 
 def main():
     st.title('Covid-Pneumonia Detection')
