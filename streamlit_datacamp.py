@@ -22,14 +22,15 @@ def predict(testing_image):
     image = image.resize((224,224))
     image = img_to_array(image)
     image = image.reshape(1,224,224,3)
-
-    result = model.predict(image)
-    result = np.argmax(result, axis=-1)
+    
+    image=preprocess_input(image)
+    classes=model.predict(image)
+    result=int(classes[0][0])
     
     if result==0:
-        print("PNEUMONIA")
+        return "PNEUMONIA"
     else:
-        print("Normal")
+        return "Normal"
 
 def main():
     st.title('Pneumonia Detection')
@@ -44,7 +45,8 @@ def main():
 
         # Prediction
         if st.button('Result', help='Prediction'):
-            predict(image)
+            result = predict(image)
+            print(str(result))
 
 if __name__=='__main__':
     main()
