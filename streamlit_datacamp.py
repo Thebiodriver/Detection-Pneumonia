@@ -51,7 +51,7 @@ def main():
 
         # Prediction
         if st.button('Result', help='Prediction'):
-            st.success(predict(image))
+            print(str((predict(image))
 
 if __name__=='__main__':
     main()
