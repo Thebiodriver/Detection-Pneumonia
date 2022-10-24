@@ -44,7 +44,7 @@ def main():
 
         # Prediction
         if st.button('Result', help='Prediction'):
-            st.success(predict(image))
+            predict(image)
 
 if __name__=='__main__':
     main()
