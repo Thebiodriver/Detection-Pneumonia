@@ -34,8 +34,8 @@ def predict(testing_image):
         return "Patient is COVID Positive."
 
 def main():
-    st.title('Covid-Pneumonia Detection')
-    st.subheader('This project will predict whether a person is suffering from Covid or Viral Pneumonia using Radiograph images.')
+    st.title('Pneumonia Detection')
+    st.subheader('This project will predict whether the image is a Normal chest X-ray or a Pneumonia chest X-ray.')
 
     image = st.file_uploader('Upload Image', type=['jpg', 'jpeg', 'png'])
 
