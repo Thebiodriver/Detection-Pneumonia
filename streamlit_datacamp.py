@@ -31,9 +31,9 @@ def predict(testing_image):
 
     if result==0:
             # print("Person is Affected By PNEUMONIA")
-        return "Person has Pneumonia"
+        print("Person has Pneumonia")
     else:
-        return "Result is Normal"
+        print("Result is Normal")
             # print("Result is Normal")
 
 
