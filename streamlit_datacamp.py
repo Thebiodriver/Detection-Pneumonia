@@ -26,8 +26,7 @@ def predict(testing_image):
     image_data=preprocess_input(x)
     classes=model.predict(image_data)
     result=int(classes[0][0])
-    st.markdown(classes)
-    st.markdown(classes[0])
+
 
 
     if result==0:
